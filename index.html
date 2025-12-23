@@ -4,11 +4,37 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Analog Clock</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg%20id%3D%22svg%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22128%22%20height%3D%22128%22%20viewBox%3D%220%200%20128%20128%22%20align%3D%22center%22%3E%3Ctext%20x%3D%2264%22%20y%3D%2274%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-size%3D%22120%22%20font-family%3D%22sans-serif%22%20fill%3D%22%23000000%22%20font-weight%3D%22normal%22%3E%E2%8C%9A%3C%2Ftext%3E%3C%2Fsvg%3E"
+    />
     <style>
       body {
-        margin: 24px;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
           sans-serif;
+      }
+      .size-selector {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      .github-link {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        color: #007acc;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      .github-link:hover {
+        text-decoration: underline;
       }
       .row {
         display: flex;
@@ -27,7 +53,6 @@
         font-size: 14px;
       }
       .panel {
-        margin-top: 18px;
         padding: 14px;
         border: 1px solid #ddd;
         border-radius: 10px;
@@ -36,30 +61,33 @@
     </style>
   </head>
   <body>
-    <div class="row">
-      <label>
-        Clock size
-        <select id="sizeSelect">
-          <option>120</option>
-          <option>180</option>
-          <option>240</option>
-          <option>320</option>
-          <option>420</option>
-          <option selected>640</option>
-          <option>960</option>
-        </select>
-        <span>px</span>
-      </label>
-    </div>
+    <label class="size-selector">
+      Clock size
+      <select id="sizeSelect">
+        <option>120</option>
+        <option>180</option>
+        <option>240</option>
+        <option>320</option>
+        <option>420</option>
+        <option selected>640</option>
+        <option>960</option>
+      </select>
+      <span>px</span>
+    </label>
 
     <div class="panel">
       <analog-clock id="clock" size="640"></analog-clock>
     </div>
+
+    <a
+      href="https://github.com/andygock/analog-clock"
+      class="github-link"
+      target="_blank"
+      >View on GitHub</a
+    >
     <script src="./analog-clock.js"></script>
     <script>
       const sizeSelect = document.getElementById("sizeSelect");
-      const syncBtn = document.getElementById("syncBtn");
-      const offsetBtn = document.getElementById("offsetBtn");
       const clock = document.getElementById("clock");
 
       sizeSelect.addEventListener("change", () => {

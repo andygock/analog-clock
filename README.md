@@ -3,7 +3,7 @@
 A reusable, dependency-free **vanilla JavaScript Web Component** that renders an animated analogue clock using SVG.  
 It supports smooth sweeping seconds via **browser-native animations**, accurate phase alignment to real time, configurable dimensions and styling, and explicit time synchronisation offsets.
 
-Licensed under **MIT**.
+Licensed under **MIT License**.
 
 ---
 
@@ -66,21 +66,21 @@ This renders a clock with sensible defaults and a smooth sweeping second hand.
 
 Size is in pixels and controls all proportional defaults.
 
----
-
-## Live Example
+### Set other style attributes
 
 ```html
 <analog-clock
   size="180"
-  face-color="#0f0f10"
-  rim-color="#2a2a2d"
-  marker-color="#d6d6d6"
-  hour-hand-color="#ffffff"
-  minute-hand-color="#ffffff"
-  second-hand-color="#ff3b30">
+  face-color="#f5f5dc"
+  rim-color="#8b4513"
+  marker-color="#2f4f4f"
+  hour-hand-color="#daa520"
+  minute-hand-color="#daa520"
+  second-hand-color="#dc143c">
 </analog-clock>
 ```
+
+You can see the examples above on [this live demo at JSBin](https://jsbin.com/pepewodigi/edit?html,output).
 
 ---
 
@@ -156,7 +156,8 @@ The component exposes methods for precise time control.
 ### Sync to system time
 
 ```js
-document.querySelector("analog-clock").syncToSystemTime();
+const clock = document.querySelector("analog-clock");
+clock.syncToSystemTime();
 ```
 
 ### Set explicit epoch time
@@ -211,18 +212,6 @@ This approach avoids jitter and timer quantisation issues common with `setInterv
 * Modern Chromium, Firefox, Safari
 * Requires SVG + Web Animations API
 * No polyfills required for current browsers
-
----
-
-## License
-
-MIT License
-
-Copyright (c) 2025
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the “Software”), to deal
-in the Software without restriction.
 
 ---
 
